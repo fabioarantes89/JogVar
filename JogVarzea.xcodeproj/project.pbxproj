@@ -17,6 +17,7 @@
 		1FFCCE8D1D778E6000060880 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE8C1D778E6000060880 /* User.swift */; };
 		1FFCCE8F1D778E8700060880 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE8E1D778E8600060880 /* Team.swift */; };
 		1FFCCE921D778F1100060880 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE911D778F1100060880 /* UserModel.swift */; };
+		D72B28A51D809F6000FD97B6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B28A41D809F6000FD97B6 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1FFCCE8C1D778E6000060880 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = API/activeobjects/User.swift; sourceTree = "<group>"; };
 		1FFCCE8E1D778E8600060880 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Team.swift; path = API/activeobjects/Team.swift; sourceTree = "<group>"; };
 		1FFCCE911D778F1100060880 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = API/activemodels/UserModel.swift; sourceTree = "<group>"; };
+		D72B28A41D809F6000FD97B6 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				1FFCCE781D778C6900060880 /* Assets.xcassets */,
 				1FFCCE7A1D778C6900060880 /* LaunchScreen.storyboard */,
 				1FFCCE7D1D778C6900060880 /* Info.plist */,
+				D72B28A41D809F6000FD97B6 /* Configuration.swift */,
 			);
 			path = JogVarzea;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				1FFCCE8F1D778E8700060880 /* Team.swift in Sources */,
 				1FFCCE8D1D778E6000060880 /* User.swift in Sources */,
 				1FFCCE721D778C6900060880 /* AppDelegate.swift in Sources */,
+				D72B28A51D809F6000FD97B6 /* Configuration.swift in Sources */,
 				1FFCCE8A1D778DDD00060880 /* Promises.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

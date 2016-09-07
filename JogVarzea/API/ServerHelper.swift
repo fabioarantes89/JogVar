@@ -3,10 +3,15 @@ import UIKit
 class ServerHelperDataTransfer:NSObject {
     var header:NSHTTPURLResponse!;
     var data:NSData!
+    var error:NSError?
 
     init(headers:NSHTTPURLResponse, data:NSData){
         self.header = headers;
         self.data = data;
+    }
+    init(headers:NSHTTPURLResponse, error:NSError){
+        self.header = headers;
+        self.error = error;
     }
 }
 
@@ -16,10 +21,10 @@ class ServerHelper:NSObject {
     
     
     
-    func load(url:NSURL) -> Promises {
+    func load(url:NSURL) -> PromisesNet {
         
         
-        let promise:Promises = Promises();
+        let promise:PromisesNet = PromisesNet();
         
         if self.dataTask != nil {
             self.dataTask?.cancel()
@@ -32,7 +37,10 @@ class ServerHelper:NSObject {
             })
             
             if error != nil {
-                promise.rejects(error!);
+                if let response:NSHTTPURLResponse! = response as? NSHTTPURLResponse {
+                    let transfer:ServerHelperDataTransfer = ServerHelperDataTransfer(headers: response!, error: error!)
+                    promise.rejects(transfer);
+                }
             } else {
                 if let response:NSHTTPURLResponse! = response as? NSHTTPURLResponse {
                     
