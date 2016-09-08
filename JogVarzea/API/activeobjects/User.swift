@@ -9,11 +9,20 @@
 import UIKit
 
 class User: NSObject {
+    var _id:String?
     var name:String?
     var email:String?
     var rg:String?
     var cpf:String?
     var telephone:String?
+    
+    init(id:String){
+        self._id = id;
+    }
+    
+    init(dictionary:NSDictionary){
+        
+    }
 }
 
 

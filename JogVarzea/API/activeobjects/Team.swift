@@ -18,6 +18,8 @@ class Team: NSObject {
     var uf:String?
     var owner:User?
     var players:Array<User>?
+    var type:String?
+    
     
     init(dictionary:NSDictionary){
         
@@ -42,6 +44,24 @@ class Team: NSObject {
         if let uf = dictionary.objectForKey("uf") as? String{
             self.uf = uf
         }
+        if let type = dictionary.objectForKey("type") as? String{
+            self.type = type
+        }
+        
+        if let arrPlayers = dictionary.objectForKey("players") as? NSArray {
+            self.players = Array<User>();
+            if(arrPlayers.count > 0){
+                for var i in 0...(arrPlayers.count-1) {
+                    let item = arrPlayers[i] as! String;
+                    self.players?.append(User(id: item));
+                }
+            }
+            
+        }
+        if let own = dictionary.objectForKey("owner") as? String {
+            self.owner = User(id: own)
+        }
+        
         
     }
 }

@@ -8,8 +8,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let test:UserModel = UserModel()
-        
+        let test:TeamsModel = TeamsModel()
+        let promise:Promises = test.index(nil)
+        promise.then { (data:AnyObject) in
+            
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+            print(transfer.data)
+            
+            
+        }
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            
+            print(error?.code);
+            
+            
+        }
         
         
         

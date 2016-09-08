@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F8739E61D818FAE00DADF92 /* TeamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8739E51D818FAE00DADF92 /* TeamsModel.swift */; };
+		1F8739E81D8192F900DADF92 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8739E71D8192F900DADF92 /* DataModel.swift */; };
 		1FFCCE721D778C6900060880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE711D778C6900060880 /* AppDelegate.swift */; };
 		1FFCCE741D778C6900060880 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE731D778C6900060880 /* ViewController.swift */; };
 		1FFCCE771D778C6900060880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFCCE751D778C6900060880 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F8739E51D818FAE00DADF92 /* TeamsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamsModel.swift; path = API/activemodels/TeamsModel.swift; sourceTree = "<group>"; };
+		1F8739E71D8192F900DADF92 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataModel.swift; path = utils/DataModel.swift; sourceTree = "<group>"; };
 		1FFCCE6E1D778C6900060880 /* JogVarzea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JogVarzea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFCCE711D778C6900060880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FFCCE731D778C6900060880 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				1FFCCE911D778F1100060880 /* UserModel.swift */,
+				1F8739E51D818FAE00DADF92 /* TeamsModel.swift */,
+				1F8739E71D8192F900DADF92 /* DataModel.swift */,
 			);
 			name = activemodels;
 			sourceTree = "<group>";
@@ -190,6 +196,8 @@
 				1FFCCE921D778F1100060880 /* UserModel.swift in Sources */,
 				1FFCCE8F1D778E8700060880 /* Team.swift in Sources */,
 				1FFCCE8D1D778E6000060880 /* User.swift in Sources */,
+				1F8739E81D8192F900DADF92 /* DataModel.swift in Sources */,
+				1F8739E61D818FAE00DADF92 /* TeamsModel.swift in Sources */,
 				1FFCCE721D778C6900060880 /* AppDelegate.swift in Sources */,
 				D72B28A51D809F6000FD97B6 /* Configuration.swift in Sources */,
 				1FFCCE8A1D778DDD00060880 /* Promises.swift in Sources */,
