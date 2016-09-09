@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Team: NSObject {
+class Team: NSObject, SimpleDAO {
     var id:String?
     var name:String?
     var desc:String?
@@ -61,7 +61,68 @@ class Team: NSObject {
         if let own = dictionary.objectForKey("owner") as? String {
             self.owner = User(id: own)
         }
-        
-        
     }
+    
+    func submitValues() -> SimpleDAOBody {
+        let transporter = SimpleDAOBody();
+        
+        let body  = NSMutableString();
+        
+        if let id = self.id {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(id)")
+        }
+        
+        
+        if let name = self.name {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(name)")
+        }
+        if let desc = self.desc {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(desc)")
+        }
+        if let uniform = self.uniform {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(uniform)")
+        }
+        if let region = self.region {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(region)")
+        }
+        if let city = self.city {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(city)")
+        }
+        if let uf = self.uf {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(uf)")
+        }
+        if let owner = self.owner {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(owner._id)")
+        }
+        /*
+         MARK: TODO
+        if let players = self.players {
+            for var i in 0...(players.count-1) {
+                var player = players[i] as? User;
+                
+                body.appendString("--\(transporter.Boundary)\r\n");
+                body.appendString("\r\n\r\n\(player.id)")
+            }
+            
+        }
+         */
+        if let type = self.type {
+            body.appendString("--\(transporter.Boundary)\r\n");
+            body.appendString("\r\n\r\n\(type)")
+        }
+        
+        transporter.data = body.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        
+        return transporter
+    }
+    
 }

@@ -8,14 +8,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        var dict:Dictionary<String, String> = Dictionary<String, String>()
+        //dict["page"] = "2"
+        dict["TEAM_ID"] = "57531124f968916d6100f929"
+        
+        
         let test:TeamsModel = TeamsModel()
-        let promise:Promises = test.index(nil)
+        let promise:Promises = test.show(dict)
         promise.then { (data:AnyObject) in
             
             let transfer:DataTransporter = data as! DataTransporter;
             
-            print(transfer.data)
-            
+            //for var i in 0...(transfer.data.count-1) {
+            // let team = transfer.data[i]
+            //}
             
         }
         promise.recover { (transfer:AnyObject) in
@@ -24,12 +30,8 @@ class ViewController: UIViewController {
             
             print(error?.code);
             
-            
         }
-        
-        
-        
-        
+
     }
 
     override func didReceiveMemoryWarning() {
