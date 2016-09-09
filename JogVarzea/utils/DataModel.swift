@@ -7,11 +7,13 @@ class DataTransporter:NSObject {
 }
 class SimpleDAOBody {
     var data:NSData!
-    var Boundary:String = "lkjasldkjaosihda98syd9ahsd98ahs";
+    var header:String!
+    var Boundary:String = "lkjasldkjaosihda98syd9ahsd98ahs"
 }
 protocol SimpleDAO:NSObjectProtocol {
     func submitValues() -> SimpleDAOBody
 }
+
 class DataModel:NSObject {
     var indexUrl:String!
     var showUrl:String!
@@ -133,11 +135,10 @@ class DataModel:NSObject {
         if let data = data {
             let dao = data.submitValues()
             let dataPackage:NSData = dao.data
-            let boundary = dao.Boundary
             
             req.HTTPBody = dataPackage
             req.setValue(String(dataPackage.length), forHTTPHeaderField: "Content-Length")
-            req.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            req.setValue(dao.header, forHTTPHeaderField: "Content-Type")
         }
         
         let p = self.serverH.loadRequest(req)
@@ -172,11 +173,11 @@ class DataModel:NSObject {
         if let data = data {
             let dao = data.submitValues()
             let dataPackage:NSData = dao.data
-            let boundary = dao.Boundary
+            //let boundary = dao.Boundary
             
             req.HTTPBody = dataPackage
             req.setValue(String(dataPackage.length), forHTTPHeaderField: "Content-Length")
-            req.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            req.setValue(dao.header, forHTTPHeaderField: "Content-Type")
             
         }
         

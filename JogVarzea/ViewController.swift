@@ -8,6 +8,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        /*
+         MARK: Normal Req
         var dict:Dictionary<String, String> = Dictionary<String, String>()
         //dict["page"] = "2"
         dict["TEAM_ID"] = "57531124f968916d6100f929"
@@ -31,6 +34,49 @@ class ViewController: UIViewController {
             print(error?.code);
             
         }
+        */
+        
+        /*
+         
+         MARK: Login Example
+         
+        // NSUserDefaults.standardUserDefaults().removeObjectForKey(APIUTILS.AuthTokenNSUserDefaults.rawValue)
+        //NSUserDefaults.standardUserDefaults().synchronize()
+        
+        if(Oauth.isLogged()){
+            let credentials:Oauth! = Oauth.returnCredentials()
+            print(credentials)
+        } else {
+            // MARK: USER Login
+            let user:Oauth = Oauth(email: "fabio.arantes@icloud.com", pass:"f-117s");
+            
+            let test:LoginModel = LoginModel()
+            let promise = test.login(user)
+            promise.then { (data:AnyObject) in
+                
+                let transfer:DataTransporter = data as! DataTransporter;
+                
+                //for var i in 0...(transfer.data.count-1) {
+                // let team = transfer.data[i]
+                //}
+                
+            }
+            promise.recover { (transfer:AnyObject) in
+                let transfer = transfer as? ServerHelperDataTransfer;
+                let error = transfer?.error
+                
+                print(error?.code);
+                
+            }
+
+        }
+        */
+        
+        
+        
+        
+        
+        
 
     }
 

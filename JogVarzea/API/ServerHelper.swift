@@ -1,7 +1,7 @@
 import UIKit
 
 enum APIUTILS:String {
-    case ACCESS_TOKEN = "ACCESS_TOKEN", Authorization = "Authorization", errorDomain = "torquatoStudios.jogVarzea", bearer = "Bearer: "
+    case ACCESS_TOKEN = "ACCESS_TOKEN", Authorization = "Authorization", errorDomain = "torquatoStudios.jogVarzea", bearer = "Bearer: ", AuthTokenNSUserDefaults = "Token", AuthValidUntilNSUserDefaults = "valids_until", AuthUserIDNSUserDefaults = "oauth_user_id"
 }
 
 class ServerHelperDataTransfer:NSObject {
