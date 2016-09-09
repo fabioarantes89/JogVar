@@ -39,6 +39,14 @@ class DataModel:NSObject {
     
     var serverH:ServerHelper = ServerHelper();
     
+    
+    func setAuthorizationHeader(req:NSMutableURLRequest) {
+        if(Oauth.isLogged()){
+            let credentials:Oauth! = Oauth.returnCredentials()
+            req.setValue("\(APIUTILS.bearer.rawValue)\(credentials.token!)", forHTTPHeaderField: APIUTILS.Authorization.rawValue)
+        }
+    }
+    
     func index(params:Dictionary<String, String>?) -> Promises {
         let promise:Promises = Promises();
         
@@ -136,6 +144,8 @@ class DataModel:NSObject {
             let dao = data.submitValues()
             let dataPackage:NSData = dao.data
             
+            self.setAuthorizationHeader(req)
+            
             req.HTTPBody = dataPackage
             req.setValue(String(dataPackage.length), forHTTPHeaderField: "Content-Length")
             req.setValue(dao.header, forHTTPHeaderField: "Content-Type")
@@ -175,6 +185,8 @@ class DataModel:NSObject {
             let dataPackage:NSData = dao.data
             //let boundary = dao.Boundary
             
+            self.setAuthorizationHeader(req)
+            
             req.HTTPBody = dataPackage
             req.setValue(String(dataPackage.length), forHTTPHeaderField: "Content-Length")
             req.setValue(dao.header, forHTTPHeaderField: "Content-Type")
@@ -209,6 +221,10 @@ class DataModel:NSObject {
         
         
         let req = NSMutableURLRequest(URL: url)
+        
+        self.setAuthorizationHeader(req)
+        
+        
         let p = self.serverH.loadRequest(req)
         
         return p;
@@ -238,6 +254,10 @@ class DataModel:NSObject {
         
         let req = NSMutableURLRequest(URL: url)
         req.HTTPMethod = "DELETE";
+        
+        self.setAuthorizationHeader(req)
+        
+        
         let p = self.serverH.loadRequest(req)
         
         return p;

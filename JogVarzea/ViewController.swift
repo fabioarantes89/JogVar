@@ -72,9 +72,61 @@ class ViewController: UIViewController {
         }
         */
         
+        /*
+         MARK: SHOW USER
+        var dict:Dictionary<String, String> = Dictionary<String, String>()
+        //dict["page"] = "2"
+        //dict["TEAM_ID"] = "57531124f968916d6100f929"
         
         
+        let test:UserModel = UserModel()
+        let promise:Promises = test.index(dict)
+        promise.then { (data:AnyObject) in
+            
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+            //for var i in 0...(transfer.data.count-1) {
+            // let team = transfer.data[i]
+            //}
+            
+        }
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
+
+        */
+        /*
+         MARK: User SHOW
+        var dict:Dictionary<String, String> = Dictionary<String, String>()
+        //dict["page"] = "2"
+        dict["USER_ID"] = "5737c40d0308d815533fd625"
         
+        
+        let test:UserModel = UserModel()
+        let promise:Promises = test.show(dict)
+        promise.then { (data:AnyObject) in
+            
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+            //for var i in 0...(transfer.data.count-1) {
+            // let team = transfer.data[i]
+            //}
+            
+        }
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
+        */
         
         
 

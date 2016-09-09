@@ -27,7 +27,36 @@ class User: NSObject, SimpleDAO  {
     }
     
     init(dictionary:NSDictionary){
-        
+        if let _id = dictionary.objectForKey("_id") as? String {
+            self._id = _id;
+        }
+        if let name = dictionary.objectForKey("name") as? String {
+            self.name = name;
+        }
+        if let email = dictionary.objectForKey("email") as? String {
+            self.email = email;
+        }
+        if let telephone = dictionary.objectForKey("telephone") as? String {
+            self.telephone = telephone;
+        }
+        if let cpf = dictionary.objectForKey("cpf") as? String {
+            self.cpf = cpf;
+        }
+        if let rg = dictionary.objectForKey("rg") as? String {
+            self.rg = rg;
+        }
+        if let device_type = dictionary.objectForKey("device_type") as? String {
+            self.device_type = device_type;
+        }
+        if let device_id = dictionary.objectForKey("device_id") as? String {
+            self.device_id = device_id;
+        }
+        if let plays_at = dictionary.objectForKey("plays_at") as? String {
+            self.plays_at = plays_at;
+        }
+        if let file_id = dictionary.objectForKey("file_id") as? String {
+            self.file_id = file_id;
+        }
     }
     func submitValues() -> SimpleDAOBody {
         let transporter = SimpleDAOBody();
