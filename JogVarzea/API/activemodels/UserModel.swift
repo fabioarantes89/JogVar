@@ -11,11 +11,11 @@ class UserModel:DataModel {
         self.deleteUrl = String(stringInterpolation: ApiBaseURL, "users/%USER_ID%")
         self.loginUrl = String(stringInterpolation: ApiBaseURL, "users/%USER_ID%")
     }
-    func login(user:){
+    func login(user:SimpleDAO) -> Promises {
         let promise:Promises = Promises();
         
         let showUrl = self.showUrl;
-        let p = self.postRequest(showUrl, params: params)
+        let p = self.postRequest(showUrl, params: nil, data:user)
         p.then { (data:ServerHelperDataTransfer) in
             promise.resolv(self._show(data.data));
         }
