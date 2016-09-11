@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class Team: NSObject, SimpleDAO {
     var id:String?
@@ -19,6 +20,7 @@ class Team: NSObject, SimpleDAO {
     var owner:User?
     var players:Array<User>?
     var type:String?
+    var loc:CLLocation?
     
     
     init(dictionary:NSDictionary){
@@ -48,6 +50,19 @@ class Team: NSObject, SimpleDAO {
             self.type = type
         }
         
+        if let loc = dictionary.objectForKey("loc") as? NSArray {
+            if(loc.count == 2){
+                let lattitude = loc[1] as? Double
+                let longitude = loc[0] as? Double
+                if lattitude != nil && longitude != nil {
+                    let loc = CLLocation(latitude: CLLocationDegrees(floatLiteral: lattitude!), longitude: CLLocationDegrees(floatLiteral: longitude!))
+                    
+                    self.loc = loc
+                }
+            }
+        }
+        
+            
         if let arrPlayers = dictionary.objectForKey("players") as? NSArray {
             self.players = Array<User>();
             if(arrPlayers.count > 0){
