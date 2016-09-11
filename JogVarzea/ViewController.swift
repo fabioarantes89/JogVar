@@ -36,11 +36,11 @@ class ViewController: UIViewController {
         }
         */
         
-        /*
+        
          
-         MARK: Login Example
+         //MARK: Login Example
          
-        // NSUserDefaults.standardUserDefaults().removeObjectForKey(APIUTILS.AuthTokenNSUserDefaults.rawValue)
+        //NSUserDefaults.standardUserDefaults().removeObjectForKey(APIUTILS.AuthTokenNSUserDefaults.rawValue)
         //NSUserDefaults.standardUserDefaults().synchronize()
         
         if(Oauth.isLogged()){
@@ -66,11 +66,14 @@ class ViewController: UIViewController {
                 let error = transfer?.error
                 
                 print(error?.code);
+                let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+                print(error?.code);
+                print(dados);
                 
             }
 
         }
-        */
+        /**/
         
         /*
          MARK: SHOW USER
@@ -126,10 +129,114 @@ class ViewController: UIViewController {
             print(dados);
             
         }
-        */
+ 
+         // MARK: File Upload
+        let image:UIImage? = UIImage(named: "Imaginate");
         
+        if let image = image {
+            let file:FileDAO = FileDAO(image:image)
+            let model:FileModel = FileModel();
+            
+            let promise:Promises = model.create(file, params: nil)
+            
+            promise.then({ (data:AnyObject) in
+                let transfer:DataTransporter = data as! DataTransporter;
+                
+            })
+            promise.recover { (transfer:AnyObject) in
+                let transfer = transfer as? ServerHelperDataTransfer;
+                let error = transfer?.error
+                let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+                print(error?.code);
+                print(dados);
+                
+            }
+            
+        }
+ 
+        // MARK: User Logged Info
+        let model:UserModel = UserModel()
+        let promise:Promises = model.me()
+        promise.then({ (data:AnyObject) in
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+            
+        })
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
+ 
         
-
+        // MARK: Categories List
+        let model:CategoriesModel = CategoriesModel()
+        let promise:Promises = model.index(nil)
+        promise.then({ (data:AnyObject) in
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+        })
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
+ 
+        // MARK: Categories Create
+        let model:CategoriesModel = CategoriesModel()
+        let cat:CategoryAPI = CategoryAPI(name:"CategoryTest");
+        
+        let promise:Promises = model.create(cat, params: nil)
+        promise.then({ (data:AnyObject) in
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+        })
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
+ 
+        // MARK: Modalities List
+        let model:ModalitiesModel = ModalitiesModel()
+        let promise:Promises = model.index(nil)
+        promise.then({ (data:AnyObject) in
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+        })
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
+ */
+        // MARK: LIST Places
+        let model:PlacesModel = PlacesModel()
+        let promise:Promises = model.index(nil)
+        promise.then({ (data:AnyObject) in
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+        })
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -2,9 +2,11 @@ import UIKit
 
 class LoginModel:DataModel {
     var loginUrl:String!
+    var meUrl:String!
     override init(){
         super.init()
         self.loginUrl = String(stringInterpolation: ApiBaseURL, "oauth/token")
+        
     }
     func _login(data:NSData) -> DataTransporter {
         let a:DataTransporter = super._index(data);
@@ -48,5 +50,6 @@ class LoginModel:DataModel {
         return promise;
         
     }
+    
     
 }

@@ -1,7 +1,6 @@
 import UIKit
 
-class UserModel:DataModel {
-    var meUrl:String!
+class ModalitiesModel:DataModel {
     override func _show(data:NSData) -> DataTransporter {
         let a:DataTransporter = DataTransporter ();
         
@@ -11,7 +10,7 @@ class UserModel:DataModel {
             self._defaultListParams(a, dados:dados)
             
             if let dados = dados {
-                a.data.append(User(dictionary: dados))
+                a.data.append(Modality(dictionary: dados))
             }
             
             
@@ -35,7 +34,7 @@ class UserModel:DataModel {
                 for var i in 0...(arrData.count-1) {
                     let item:NSDictionary = arrData[i] as! NSDictionary;
                     
-                    a.data.append(User(dictionary: item))
+                    a.data.append(Modality(dictionary: item))
                     
                 }
                 
@@ -46,36 +45,20 @@ class UserModel:DataModel {
             print(error)
         }
         
-
+        
         
         return a
     }
     
-    func me() -> Promises {
-        let promise:Promises = Promises();
-        
-        let loginUrl = self.meUrl;
-        let p = self.getRequest(loginUrl, params: nil)
-        p.then { (data:ServerHelperDataTransfer) in
-            promise.resolv(self._show(data.data));
-        }
-        p.recover { (data:ServerHelperDataTransfer) in
-            promise.rejects(data)
-        }
-        
-        return promise;
-        
-    }
     
     
     override init(){
         super.init()
-        self.meUrl = String(stringInterpolation: ApiBaseURL, "users/me")
-        self.indexUrl = String(stringInterpolation: ApiBaseURL, "users");
-        self.createUrl = String(stringInterpolation: ApiBaseURL, "users");
-        self.showUrl = String(stringInterpolation: ApiBaseURL, "users/%USER_ID%");
-        self.updateUrl = String(stringInterpolation: ApiBaseURL, "users/%USER_ID%");
-        self.deleteUrl = String(stringInterpolation: ApiBaseURL, "users/%USER_ID%")
+        self.indexUrl = String(stringInterpolation: ApiBaseURL, "modalities");
+        self.createUrl = String(stringInterpolation: ApiBaseURL, "modalities");
+        self.showUrl = String(stringInterpolation: ApiBaseURL, "modalities/%MODALITY_ID%");
+        self.updateUrl = String(stringInterpolation: ApiBaseURL, "modalities/%MODALITY_ID%");
+        self.deleteUrl = String(stringInterpolation: ApiBaseURL, "modalities/%MODALITY_ID%")
     }
     
     

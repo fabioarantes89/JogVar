@@ -23,7 +23,14 @@
 		1FFCCE8D1D778E6000060880 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE8C1D778E6000060880 /* User.swift */; };
 		1FFCCE8F1D778E8700060880 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE8E1D778E8600060880 /* Team.swift */; };
 		1FFCCE921D778F1100060880 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCCE911D778F1100060880 /* UserModel.swift */; };
+		D70A2A761D858CF200174BFC /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2A751D858CF200174BFC /* CategoriesModel.swift */; };
+		D70A2A781D858D4000174BFC /* CategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2A771D858D4000174BFC /* CategoryAPI.swift */; };
+		D70A2A7A1D858FDB00174BFC /* ModalitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2A791D858FDB00174BFC /* ModalitiesModel.swift */; };
+		D70A2A7C1D858FFC00174BFC /* Modality.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2A7B1D858FFC00174BFC /* Modality.swift */; };
+		D70A2A7E1D85909800174BFC /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2A7D1D85909800174BFC /* PlacesModel.swift */; };
+		D70A2A801D8590C000174BFC /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2A7F1D8590C000174BFC /* Place.swift */; };
 		D72B28A51D809F6000FD97B6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B28A41D809F6000FD97B6 /* Configuration.swift */; };
+		D733C5281D84CDF2008E69CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733C5271D84CDF2008E69CE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +52,14 @@
 		1FFCCE8C1D778E6000060880 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = API/activeobjects/User.swift; sourceTree = "<group>"; };
 		1FFCCE8E1D778E8600060880 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Team.swift; path = API/activeobjects/Team.swift; sourceTree = "<group>"; };
 		1FFCCE911D778F1100060880 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = API/activemodels/UserModel.swift; sourceTree = "<group>"; };
+		D70A2A751D858CF200174BFC /* CategoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesModel.swift; path = API/activemodels/CategoriesModel.swift; sourceTree = "<group>"; };
+		D70A2A771D858D4000174BFC /* CategoryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryAPI.swift; path = API/activeobjects/CategoryAPI.swift; sourceTree = "<group>"; };
+		D70A2A791D858FDB00174BFC /* ModalitiesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalitiesModel.swift; path = API/activemodels/ModalitiesModel.swift; sourceTree = "<group>"; };
+		D70A2A7B1D858FFC00174BFC /* Modality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Modality.swift; path = API/activeobjects/Modality.swift; sourceTree = "<group>"; };
+		D70A2A7D1D85909800174BFC /* PlacesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesModel.swift; path = API/activemodels/PlacesModel.swift; sourceTree = "<group>"; };
+		D70A2A7F1D8590C000174BFC /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = API/activeobjects/Place.swift; sourceTree = "<group>"; };
 		D72B28A41D809F6000FD97B6 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D733C5271D84CDF2008E69CE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = utils/Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFCCE891D778DDD00060880 /* Promises.swift */,
+				D733C5271D84CDF2008E69CE /* Extensions.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -116,6 +131,9 @@
 				1FFCCE8C1D778E6000060880 /* User.swift */,
 				1FFCCE8E1D778E8600060880 /* Team.swift */,
 				1FA94CFB1D8371E70004016F /* FileDAO.swift */,
+				D70A2A771D858D4000174BFC /* CategoryAPI.swift */,
+				D70A2A7B1D858FFC00174BFC /* Modality.swift */,
+				D70A2A7F1D8590C000174BFC /* Place.swift */,
 			);
 			name = activeobjects;
 			sourceTree = "<group>";
@@ -128,6 +146,9 @@
 				1F8739E71D8192F900DADF92 /* DataModel.swift */,
 				1FC5C5C21D82E4BB00A63D77 /* LoginModel.swift */,
 				1FA94CF91D8371910004016F /* FileModel.swift */,
+				D70A2A751D858CF200174BFC /* CategoriesModel.swift */,
+				D70A2A791D858FDB00174BFC /* ModalitiesModel.swift */,
+				D70A2A7D1D85909800174BFC /* PlacesModel.swift */,
 			);
 			name = activemodels;
 			sourceTree = "<group>";
@@ -203,16 +224,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70A2A7C1D858FFC00174BFC /* Modality.swift in Sources */,
 				1FFCCE871D778DB900060880 /* ServerHelper.swift in Sources */,
 				1FC5C5C31D82E4BB00A63D77 /* LoginModel.swift in Sources */,
+				D70A2A7A1D858FDB00174BFC /* ModalitiesModel.swift in Sources */,
 				1FFCCE741D778C6900060880 /* ViewController.swift in Sources */,
 				1FFCCE921D778F1100060880 /* UserModel.swift in Sources */,
 				1FFCCE8F1D778E8700060880 /* Team.swift in Sources */,
+				D70A2A781D858D4000174BFC /* CategoryAPI.swift in Sources */,
 				1FFCCE8D1D778E6000060880 /* User.swift in Sources */,
+				D70A2A7E1D85909800174BFC /* PlacesModel.swift in Sources */,
 				1FA94CFC1D8371E70004016F /* FileDAO.swift in Sources */,
+				D70A2A761D858CF200174BFC /* CategoriesModel.swift in Sources */,
+				D70A2A801D8590C000174BFC /* Place.swift in Sources */,
 				1F8739E81D8192F900DADF92 /* DataModel.swift in Sources */,
 				1F8739E61D818FAE00DADF92 /* TeamsModel.swift in Sources */,
 				1FFCCE721D778C6900060880 /* AppDelegate.swift in Sources */,
+				D733C5281D84CDF2008E69CE /* Extensions.swift in Sources */,
 				1FA94CFA1D8371910004016F /* FileModel.swift in Sources */,
 				D72B28A51D809F6000FD97B6 /* Configuration.swift in Sources */,
 				1FC5C5C11D82E36400A63D77 /* Oauth.swift in Sources */,

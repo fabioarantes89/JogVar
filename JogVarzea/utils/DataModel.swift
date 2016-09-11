@@ -8,7 +8,7 @@ class DataTransporter:NSObject {
 class SimpleDAOBody {
     var data:NSData!
     var header:String!
-    var Boundary:String = "lkjasldkjaosihda98syd9ahsd98ahs"
+    var Boundary:String = "----WebKitFormBoundary7MA4YWxkTrZu0gW"
 }
 protocol SimpleDAO:NSObjectProtocol {
     func submitValues() -> SimpleDAOBody

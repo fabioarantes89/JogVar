@@ -16,9 +16,8 @@ class FileDAO: NSObject, SimpleDAO  {
     var path:String?
     var image:UIImage?
     
-    
-    init(id:String){
-        self._id = id;
+    init(image:UIImage){
+        self.image = image;
     }
     
     init(dictionary:NSDictionary){
@@ -43,23 +42,37 @@ class FileDAO: NSObject, SimpleDAO  {
         let transporter = SimpleDAOBody();
         /* FormData Example */
         
-         transporter.header = "Content-Type: multipart/form-data; boundary=--\(transporter.Boundary)"
+         transporter.header = "multipart/form-data; boundary=\(transporter.Boundary)"
          let body  = NSMutableData();
          
         
          if let image = self.image {
             
-            let imageData = UIImagePNGRepresentation(image)
-            
+            let imageData:NSData = UIImagePNGRepresentation(image)!
+            //print(imageData)
             body.appendData("--\(transporter.Boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!);
-            body.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"image.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            //body.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"image.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            
+            let date:NSDate = NSDate();
+            let dateFormatter:NSDateFormatter = NSDateFormatter();
+            dateFormatter.dateFormat = "ddMMyyyy-HH:mm:ss";
+            let strDate = dateFormatter.stringFromDate(date)
+            
+            body.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"image-\(strDate).png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            
+            
             body.appendData("Content-Type: image/png\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            body.appendData(imageData!)
+            body.appendData(imageData)
+            body.appendData("\r\n--\(transporter.Boundary)--".dataUsingEncoding(NSUTF8StringEncoding)!)
             
             
          }
-         body.appendData("--\(transporter.Boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         
+        let debug = String(data: body, encoding: NSUTF8StringEncoding)
+        print(debug);
+        
+            
+            
          transporter.data = body
         return transporter
     }

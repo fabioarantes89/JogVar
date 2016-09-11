@@ -10,7 +10,7 @@ class FileModel:DataModel {
             self._defaultListParams(a, dados:dados)
             
             if let dados = dados {
-                a.data.append(User(dictionary: dados))
+                a.data.append(FileDAO(dictionary: dados))
             }
             
             
