@@ -1,6 +1,8 @@
 import UIKit
 
 class MatchesModel:DataModel {
+    var teamsMatchUrl:String!
+    
     override func _show(data:NSData) -> DataTransporter {
         let a:DataTransporter = DataTransporter ();
         
@@ -49,6 +51,31 @@ class MatchesModel:DataModel {
         
         return a
     }
+    func teamsMatches(teamID:String, params:Dictionary<String, String>?) -> Promises {
+        let promise:Promises = Promises();
+        
+        var insideDictionary:Dictionary<String, String> = Dictionary<String, String>();
+        if let params = params {
+            for (key, value) in params {
+                insideDictionary.updateValue(value, forKey: key)
+            }
+        }
+        
+        insideDictionary.updateValue(teamID, forKey: "TEAM_ID")
+        
+        
+        let indexUrl = self.indexUrl;
+        let p = self.getRequest(indexUrl, params: insideDictionary)
+        p.then { (data:ServerHelperDataTransfer) in
+            promise.resolv(self._index(data.data));
+        }
+        p.recover { (data:ServerHelperDataTransfer) in
+            promise.rejects(data)
+        }
+        
+        
+        return promise;
+    }
     
     
     
@@ -57,6 +84,7 @@ class MatchesModel:DataModel {
         self.indexUrl = String(stringInterpolation: ApiBaseURL, "matches");
         self.createUrl = String(stringInterpolation: ApiBaseURL, "matches");
         self.showUrl = String(stringInterpolation: ApiBaseURL, "matches/%MATCH_ID%");
+        self.teamsMatchUrl = String(stringInterpolation: ApiBaseURL, "teams/%TEAM_ID%/matches");
         self.updateUrl = String(stringInterpolation: ApiBaseURL, "matches/%MATCH_ID%");
         self.deleteUrl = String(stringInterpolation: ApiBaseURL, "matches/%MATCH_ID%")
     }
