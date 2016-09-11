@@ -221,7 +221,7 @@ class ViewController: UIViewController {
             print(dados);
             
         }
- */
+ 
         // MARK: LIST Places
         let model:PlacesModel = PlacesModel()
         let promise:Promises = model.index(nil)
@@ -237,6 +237,24 @@ class ViewController: UIViewController {
             print(dados);
             
         }
+ 
+        
+        // MARK: List Matches
+        let model:MatchesModel = MatchesModel()
+        let promise:Promises = model.index(nil)
+        promise.then({ (data:AnyObject) in
+            let transfer:DataTransporter = data as! DataTransporter;
+            
+        })
+        promise.recover { (transfer:AnyObject) in
+            let transfer = transfer as? ServerHelperDataTransfer;
+            let error = transfer?.error
+            let dados = String(data: transfer!.data, encoding: NSUTF8StringEncoding)
+            print(error?.code);
+            print(dados);
+            
+        }
+ */
     }
 
     override func didReceiveMemoryWarning() {
